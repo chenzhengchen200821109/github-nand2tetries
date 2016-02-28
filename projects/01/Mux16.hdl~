@@ -1,0 +1,87 @@
+// Chip name: Mux16
+// Inputs: a[16] b[16] sel
+// Outputs: out[16]
+// Function: For i=0...15 out[i]=Not(in[i])
+
+CHIP Mux16 {
+    IN a[16], b[16], sel;
+    OUT out[16];
+
+    PARTS:
+    Not(in=sel, out=nsel0);
+    And(a=a[0], b=nsel0, out=w10);
+    And(a=b[0], b=sel, out=w20);
+    Or(a=w10, b=w20, out=out[0]);
+
+    Not(in=sel, out=nsel1);
+    And(a=a[1], b=nsel1, out=w11);
+    And(a=b[1], b=sel, out=w21);
+    Or(a=w11, b=w21, out=out[1]);
+
+    Not(in=sel, out=nsel2);
+    And(a=a[2], b=nsel2, out=w12);
+    And(a=b[2], b=sel, out=w22);
+    Or(a=w12, b=w22, out=out[2]);
+
+    Not(in=sel, out=nsel3);
+    And(a=a[3], b=nsel3, out=w13);
+And(a=b[3], b=sel, out=w23);
+    Or(a=w13, b=w23, out=out[3]);
+
+    Not(in=sel, out=nsel4);
+    And(a=a[4], b=nsel4, out=w1);
+    And(a=b[4], b=sel, out=w2);
+    Or(a=w1, b=w2, out=out[4]);
+
+    Not(in=sel, out=nsel);
+    And(a=a[5], b=nsel, out=w1);
+    And(a=b[5], b=sel, out=w2);
+    Or(a=w1, b=w2, out=out[5]);
+
+    Not(in=sel, out=nsel);
+    And(a=a[6], b=nsel, out=w1);
+    And(a=b[6], b=sel, out=w2);
+    Or(a=w1, b=w2, out=out[6]);
+
+    Not(in=sel, out=nsel);
+    And(a=a[7], b=nsel, out=w1);
+    And(a=b[7], b=sel, out=w2);
+    Or(a=w1, b=w2, out=out[7]);
+
+    Not(in=sel, out=nsel);
+    And(a=a[8], b=nsel, out=w1);
+    And(a=b[8], b=sel, out=w2);
+    Or(a=w1, b=w2, out=out[8]);
+
+    Not(in=sel, out=nsel9);
+    And(a=a[9], b=nsel9, out=w19);
+    And(a=[9], b=sel, out=w29);
+    Or(a=w19, b=w29, out=out[9]);
+
+    Not(in=sel, out=nsel10);
+    And(a=a[10], b=nsel10, out=w110);
+    And(a=b[10], b=sel, out=w210);
+    Or(a=w110, b=w210, out=out[10]);
+
+    Not(in=sel, out=nsel11);
+    And(a=a[11], b=nsel11, out=w111);
+    And(a=b[11], b=sel, out=w211);
+    Or(a=w111, b=w211, out=out[11]);
+
+    Not(in=sel, out=nsel12);
+    And(a=a[12], b=nsel12, out=w112);
+    And(a=b[12], b=sel, out=w212);
+    Or(a=w112, b=w212, out=out[12]);
+
+    Not(in=sel, out=nsel13);
+    And(a=a[13], b=nsel13, out=w113);
+    And(a=b[13, b=sel, out=w213);
+    Or(a=w113, b=w213, out=out[13]);
+
+    Not(in=sel, out=nsel14);
+    And(a=a[14], b=nsel14, out=w114);
+    And(a=b[14], b=sel, out=w214);
+    Or(a=w114, b=w214, out=out[14]);
+
+}
+

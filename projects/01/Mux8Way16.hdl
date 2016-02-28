@@ -18,5 +18,45 @@ CHIP Mux8Way16 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    /* Not(in=sel[0], out=nsel0);
+    Not(in=sel[1], out=nsel1);
+    Not(in=sel[2], out=nsel2);
+
+    And(a=nsel0, b=nsel1, out=aw1);
+    And(a=aw1, b=nsel2, out=aw2);
+
+    And(a=sel[0], b=nsel1, out=bw1);
+    And(a=bw1, b=nsel2, out=bw2);
+
+    And(a=nsel0, b=sel[1], out=cw1);
+    And(a=cw1, b=nsel2, out=cw2);
+
+    And(a=sel[0], b=sel[1], out=dw1);
+    And(a=dw1, b=nsel2, out=dw2);
+
+    And(a=nsel0, b=nsel1, out=ew1);
+    And(a=ew1, b=sel[2], out=ew2);
+
+    And(a=sel[0], b=nsel1, out=fw1);
+    And(a=fw1, b=sel[2], out=fw2);
+
+    And(a=nsel0, b=sel[1], out=gw1);
+    And(a=gw1, b=sel[2], out=gw2);
+
+    And(a=sel[0], b=sel[1], out=hw1);
+    And(a=hw1, b=sel[2], out=hw2);
+
+    Mux16(a=a, b=a, sel=aw2, out=out0);
+    Mux16(a=out0, b=b, sel=bw2, out=out1);
+    Mux16(a=out1, b=c, sel=cw2, out=out2);
+    Mux16(a=out2, b=d, sel=dw2, out=out3);
+    Mux16(a=out3, b=e, sel=ew2, out=out4);
+    Mux16(a=out4, b=f, sel=fw2, out=out5);
+    Mux16(a=out5, b=g, sel=gw2, out=out6);
+    Mux16(a=out6, b=h, sel=hw2, out=out); */
+
+    Mux4Way16(a=a, b=b, c=c, d=d, sel=sel[0..1], out=out1);
+    Mux4Way16(a=e, b=f, c=g, d=h, sel=sel[0..1], out=out2);
+    Mux16(a=out1, b=out2, sel=sel[2], out=out);
 }
+

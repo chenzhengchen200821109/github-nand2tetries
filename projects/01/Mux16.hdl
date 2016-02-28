@@ -1,18 +1,105 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/01/Mux16.hdl
-
-/**
- * 16-bit multiplexor: 
- * for i = 0..15 out[i] = a[i] if sel == 0 
- *                        b[i] if sel == 1
- */
+// Chip name: Mux16
+// Inputs: a[16] b[16] sel
+// Outputs: out[16]
+// Function: For i=0...15 out[i]=Not(in[i])
 
 CHIP Mux16 {
     IN a[16], b[16], sel;
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    /*  Not(in=sel, out=nsel);
+    Mux(a=a[0], b=b[0], sel=sel, out=out[0]); // this code is much better
+
+    // Not(in=sel, out=nsel);
+    And(a=a[1], b=nsel, out=w11);
+    And(a=b[1], b=sel, out=w21);
+    Or(a=w11, b=w21, out=out[1]);
+
+    // Not(in=sel, out=nsel2);
+    And(a=a[2], b=nsel, out=w12);
+    And(a=b[2], b=sel, out=w22);
+    Or(a=w12, b=w22, out=out[2]);
+
+    // Not(in=sel, out=nsel3);
+    And(a=a[3], b=nsel, out=w13);
+    And(a=b[3], b=sel, out=w23);
+    Or(a=w13, b=w23, out=out[3]);
+
+    // Not(in=sel, out=nsel4);
+    And(a=a[4], b=nsel, out=w14);
+    And(a=b[4], b=sel, out=w24);
+    Or(a=w14, b=w24, out=out[4]);
+
+    // Not(in=sel, out=nsel5);
+    And(a=a[5], b=nsel, out=w15);
+    And(a=b[5], b=sel, out=w25);
+    Or(a=w15, b=w25, out=out[5]);
+
+    // Not(in=sel, out=nsel6);
+    And(a=a[6], b=nsel, out=w16);
+    And(a=b[6], b=sel, out=w26);
+    Or(a=w16, b=w26, out=out[6]);
+
+    // Not(in=sel, out=nsel7);
+    And(a=a[7], b=nsel, out=w17);
+    And(a=b[7], b=sel, out=w27);
+    Or(a=w17, b=w27, out=out[7]);
+
+    // Not(in=sel, out=nsel8);
+    And(a=a[8], b=nsel, out=w18);
+    And(a=b[8], b=sel, out=w28);
+    Or(a=w18, b=w28, out=out[8]);
+
+    // Not(in=sel, out=nsel9);
+    And(a=a[9], b=nsel, out=w19);
+    And(a=b[9], b=sel, out=w29);
+    Or(a=w19, b=w29, out=out[9]);
+
+    // Not(in=sel, out=nsel10);
+    And(a=a[10], b=nsel, out=w110);
+    And(a=b[10], b=sel, out=w210);
+    Or(a=w110, b=w210, out=out[10]);
+
+    // Not(in=sel, out=nsel11);
+    And(a=a[11], b=nsel, out=w111);
+    And(a=b[11], b=sel, out=w211);
+    Or(a=w111, b=w211, out=out[11]);
+
+    // Not(in=sel, out=nsel12);
+    And(a=a[12], b=nsel, out=w112);
+    And(a=b[12], b=sel, out=w212);
+    Or(a=w112, b=w212, out=out[12]);
+
+    // Not(in=sel, out=nsel13);
+    And(a=a[13], b=nsel, out=w113);
+    And(a=b[13], b=sel, out=w213);
+    Or(a=w113, b=w213, out=out[13]);
+
+    // Not(in=sel, out=nsel14);
+    And(a=a[14], b=nsel, out=w114);
+    And(a=b[14], b=sel, out=w214);
+    Or(a=w114, b=w214, out=out[14]);
+
+    And(a=a[15], b=nsel, out=w115);
+    And(a=b[15], b=sel, out=w215);
+    Or(a=w115, b=w215, out=out[15]); */
+
+    Mux(a=a[0], b=b[0], sel=sel, out=out[0]);
+    Mux(a=a[1], b=b[1], sel=sel, out=out[1]);
+    Mux(a=a[2], b=b[2], sel=sel, out=out[2]);
+    Mux(a=a[3], b=b[3], sel=sel, out=out[3]);
+    Mux(a=a[4], b=b[4], sel=sel, out=out[4]);
+    Mux(a=a[5], b=b[5], sel=sel, out=out[5]);
+    Mux(a=a[6], b=b[6], sel=sel, out=out[6]);
+    Mux(a=a[7], b=b[7], sel=sel, out=out[7]);
+    Mux(a=a[8], b=b[8], sel=sel, out=out[8]);
+    Mux(a=a[9], b=b[9], sel=sel, out=out[9]);
+    Mux(a=a[10], b=b[10], sel=sel, out=out[10]);
+    Mux(a=a[11], b=b[11], sel=sel, out=out[11]);
+    Mux(a=a[12], b=b[12], sel=sel, out=out[12]);
+    Mux(a=a[13], b=b[13], sel=sel, out=out[13]);
+    Mux(a=a[14], b=b[14], sel=sel, out=out[14]);
+    Mux(a=a[15], b=b[15], sel=sel, out=out[15]);
 }
+

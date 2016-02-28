@@ -7,3 +7,54 @@
 // (R0, R1, R2 refer to RAM[0], RAM[1], and RAM[2], respectively.)
 
 // Put your code here.
+
+// If one of operands is zero
+    @0
+    D=M
+    @0
+    D=D-A
+    @2
+    M=0
+    @END
+    D;JEQ
+
+    @1
+    D=M
+    @0
+    D=D-A
+    @2
+    M=0
+    @END
+    D;JEQ
+
+ // Initialize sum
+    @i
+    M=1   // i=1
+    @product
+    M=0   // product=0
+
+// LOOP 
+(LOOP)
+    @i
+    D=M    // i
+    @1
+    D=D-M  // i-R1
+    @END
+    D;JGT
+    @0
+    D=M
+    @product
+    M=M+D //
+    @product
+    D=M
+    @2
+    M=D
+    @i
+    M=M+1 //i=i+1
+    @LOOP
+    0;JMP
+(END)
+    @END
+    0;JMP
+
+

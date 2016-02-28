@@ -1,0 +1,10 @@
+CHIP Adder {
+    IN in[16], load;
+    OUT out[16];
+
+    PARTS:
+    Not(in=in[0], out=nin);
+    Or(a=in[0], b=nin, out=true);
+    Register(in=in, in=outb, load=true, out=outa, out=out);
+    Inc16(in=outa, out=outb);
+}
