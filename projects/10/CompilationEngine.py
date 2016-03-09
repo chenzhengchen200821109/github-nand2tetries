@@ -173,7 +173,51 @@ class isStatement:
 
 class isExpression:
 
-	def 
+	def isExpression(self, token):
+		if isExpression().isTerm( token ):
+			return True
+		else:
+			return False
+
+	def isTerm(self, token):
+		if JackTokenizer().isIntVal( token ):
+			return True
+		elif JackTokenizer().isStrVal( token ):
+			return True
+		elif token in [ 'true', 'false', 'null', 'this' ]:
+			return True
+		elif isClass().isVarName( token ):
+			return True
+		elif self.isSubroutineCall( token ):
+			return True
+		elif token in [ '-', '~' ]:
+			return True
+		elif token == '(':
+			return True
+		else:
+			return False
+
+	def isSubroutineCall(self, token):
+		if isClass().isSubroutineName( token ):
+			return True
+		elif isClass().isClassName( token ):
+			return True
+		elif isClass().isVarName( token ):
+			return True
+		else:
+			return False
+
+	def isExpressionList(self, token):
+		if isExpression().isExpression( token ):
+			return True
+		else:
+			return False
+
+	def isOp(self, token):
+		if token in [ '+', '-', '/', '&', '|', '<', '>', '=' ]:
+			return True
+		else:
+			return False
 
 
 
