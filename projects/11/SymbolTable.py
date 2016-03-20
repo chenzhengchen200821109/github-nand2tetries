@@ -1,7 +1,11 @@
 class SymbolTable():
 
 	def __init__(self):
-		self._symbol_table = {}
+		self._classScope = None
+		self._subroutineScope = None
+		self._key = [ 'name', 'type', 'kind', '#' ]
+		self._value = None
+		self._classCount = 0
 
 	# Starts a new subroutine scope
 	def startSubroutine(self):
@@ -11,6 +15,9 @@ class SymbolTable():
 	# a class scope, while ARG and VAR identifier have a subroutine 
 	# scope
 	def Define(self, name, type, kind):
+		if kind in [ 'STATIC', 'FIELD' ]:
+			pair = { 'name': name, }
+			self._classScope.update
 
 	# Returns the number of variables of the given kind already defined
 	# in the current scope
@@ -25,4 +32,7 @@ class SymbolTable():
 
 	# Returns the index assigned to the named identifier.
 	def IndexOf(self, name):
+
+
+class _
 		
